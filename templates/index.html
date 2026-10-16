@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAINE V2 | Asistente Virtual</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="contenedor-principal">
+
+        <div class="header">
+            <h1>CAINE V2</h1>
+            <p class="subtitulo">Asistente Virtual</p>
+        </div>
+
+        <div class="area-principal">
+
+            <div class="zona-chat">
+                <div id="historial" class="historial">
+                    <div class="mensaje sistema">
+                        <span class="timestamp">[00:00]</span> Sistema inicializado...
+                    </div>
+                </div>
+            </div>
+
+            <div class="zona-personaje">
+                <div id="personaje" class="personaje pensativo">
+                    <div class="cabeza">
+                        <div class="ojo ojo-izq"></div>
+                        <div class="ojo ojo-der"></div>
+                        <div class="boca" id="boca"></div>
+                    </div>
+                </div>
+                <div id="estado-texto" class="estado-texto">Listo</div>
+            </div>
+
+        </div>
+
+        <div class="controles">
+            <button id="btn-voz" class="btn btn-voz">
+                🎤 HABLAR
+            </button>
+
+            <div class="input-grupo">
+                <input
+                    type="text"
+                    id="entrada-texto"
+                    class="entrada-texto"
+                    placeholder="Escribe un mensaje..."
+                    autocomplete="off"
+                >
+                <button id="btn-enviar" class="btn btn-enviar">
+                    ENVIAR
+                </button>
+            </div>
+        </div>
+
+        <div id="conexion-status" class="conexion-status conectado">
+            ● En línea
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

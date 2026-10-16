@@ -1,0 +1,334 @@
+:root {
+    --color-fondo: #000000;
+    --color-texto: #00FF00;
+    --color-pixeles: #00CC00;
+    --color-acento: #00FF00;
+    --fuente-sistema: 'Courier New', monospace;
+    --tamano-base: 14px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-sistema);
+    font-size: var(--tamano-base);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-principal {
+    width: 100%;
+    height: 100%;
+    max-width: 1366px;
+    max-height: 768px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-fondo);
+    border: 2px solid var(--color-texto);
+    box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+.header {
+    background-color: rgba(0, 255, 0, 0.05);
+    border-bottom: 2px solid var(--color-texto);
+    padding: 15px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 32px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px var(--color-acento);
+    margin-bottom: 5px;
+}
+
+.header .subtitulo {
+    font-size: 12px;
+    color: var(--color-pixeles);
+    opacity: 0.8;
+}
+
+.area-principal {
+    flex: 1;
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    overflow: hidden;
+}
+
+.zona-chat {
+    flex: 1;
+    background-color: rgba(0, 20, 0, 0.5);
+    border: 1px solid var(--color-pixeles);
+    border-radius: 2px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.historial {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mensaje {
+    font-size: 12px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.timestamp {
+    color: var(--color-pixeles);
+    opacity: 0.6;
+    margin-right: 8px;
+}
+
+.mensaje.usuario {
+    color: var(--color-acento);
+    text-align: left;
+}
+
+.mensaje.respuesta {
+    color: var(--color-texto);
+    text-align: left;
+}
+
+.mensaje.sistema {
+    color: var(--color-pixeles);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.zona-personaje {
+    flex: 0 0 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 20, 0, 0.3);
+    border: 1px solid var(--color-pixeles);
+    border-radius: 2px;
+    padding: 20px;
+}
+
+.personaje {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 255, 0, 0.05);
+    border: 2px solid var(--color-acento);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    animation: pulsarCaine 2s infinite;
+}
+
+.personaje.pensativo {
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.personaje.escuchando {
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);
+}
+
+.personaje.hablando {
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
+    animation: pulsarActivo 0.5s infinite;
+}
+
+@keyframes pulsarCaine {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes pulsarActivo {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.cabeza {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ojo {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-acento);
+    position: absolute;
+    top: 20px;
+    border: 1px solid var(--color-acento);
+}
+
+.ojo-izq {
+    left: 20px;
+}
+
+.ojo-der {
+    right: 20px;
+}
+
+.boca {
+    width: 30px;
+    height: 12px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid var(--color-acento);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.boca.cerrada {
+    height: 2px;
+    border-radius: 0;
+}
+
+.boca.abierta1 {
+    height: 6px;
+}
+
+.boca.abierta2 {
+    height: 10px;
+}
+
+.estado-texto {
+    font-size: 11px;
+    color: var(--color-pixeles);
+    text-align: center;
+    opacity: 0.8;
+    margin-top: 10px;
+}
+
+.controles {
+    background-color: rgba(0, 255, 0, 0.05);
+    border-top: 2px solid var(--color-texto);
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn {
+    background-color: rgba(0, 255, 0, 0.1);
+    border: 2px solid var(--color-acento);
+    color: var(--color-acento);
+    padding: 8px 16px;
+    font-family: var(--fuente-sistema);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background-color: rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-voz {
+    flex: 0 0 120px;
+}
+
+.btn-enviar {
+    flex: 0 0 100px;
+}
+
+.input-grupo {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+}
+
+.entrada-texto {
+    flex: 1;
+    background-color: rgba(0, 20, 0, 0.8);
+    border: 1px solid var(--color-pixeles);
+    color: var(--color-acento);
+    padding: 8px 12px;
+    font-family: var(--fuente-sistema);
+    font-size: 12px;
+    outline: none;
+}
+
+.entrada-texto:focus {
+    border-color: var(--color-acento);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.entrada-texto::placeholder {
+    color: var(--color-pixeles);
+    opacity: 0.5;
+}
+
+.conexion-status {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 11px;
+    color: var(--color-pixeles);
+    padding: 5px 10px;
+    border: 1px solid var(--color-pixeles);
+}
+
+.conexion-status.conectado {
+    color: var(--color-acento);
+    border-color: var(--color-acento);
+}
+
+.conexion-status.desconectado {
+    color: #FF3333;
+    border-color: #FF3333;
+}
+
+.historial::-webkit-scrollbar {
+    width: 8px;
+}
+
+.historial::-webkit-scrollbar-track {
+    background-color: rgba(0, 255, 0, 0.05);
+}
+
+.historial::-webkit-scrollbar-thumb {
+    background-color: var(--color-pixeles);
+    border-radius: 2px;
+}
+
+.historial::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-acento);
+}
+
+.reproductor-audio {
+    position: fixed;
+    bottom: 42px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(360px, calc(100% - 30px));
+    accent-color: var(--color-acento);
+}
